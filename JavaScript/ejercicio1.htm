@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0093)file:///C:/Users/nazam/AppData/Local/Microsoft/Windows/INetCache/IE/WB563U1X/totosama[1].html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head>
     
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio1</title>
+
 <script>
     
     function golfScore(par, strokes) {
@@ -35,10 +36,38 @@
     }
 }
 
-console.log(golfScore(3,7))
+function calcuPuntos() {
+            const parInput = document.getElementById('parInput');
+            const strokesInput = document.getElementById('strokesInput');
+            const result = document.getElementById('result');
+
+            const par = parseInt(parInput.value);
+            const strokes = parseInt(strokesInput.value);
+
+            if (isNaN(par) || isNaN(strokes)) {
+                result.textContent = 'Ingresa un numero valido';
+            } else {
+                const score = golfScore(par, strokes);
+                result.textContent = 'Resultado: ' + score;
+            }
+        }
+
+
 </script></head>
 
 <body>
-    
+    <h1>Calculadora de Golf</h1>
+    <form id="golfForm">
+        <label for="parInput">Par:</label>
+        <input type="number" id="parInput" name="par" required>
+        <br>
+        <br>
+        <label for="strokesInput">Strokes:</label>
+        <input type="number" id="strokesInput" name="strokes" required>
+        <br>
+        <br>
+        <button type="button" onclick="calcuPuntos()">Calcula</button>
+    </form>
+    <p id="result"></p>
 
 </body></html>
