@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+    <script>
+        function calcularDiasCrecimiento(velocidadCrecimiento, velocidadDecrecimiento, alturaDeseada) {
+            let alturaActual = 0;
+            let dias = 0;
+            while (alturaActual < alturaDeseada) {
+                alturaActual += velocidadCrecimiento;
+                dias++;
+                if (alturaActual >= alturaDeseada) {
+                    break;
+                }
+                alturaActual -= velocidadDecrecimiento;
+            }
+            return dias;
+        }
+
+        function calcuPuntos() {
+            const velCreInput = document.getElementById('velCreInput');
+            const velDecInput = document.getElementById('velDecInput');
+            const altInput = document.getElementById('altInput');
+            const result = document.getElementById('result');
+
+            const cre = parseInt(velCreInput.value);
+            const dec = parseInt(velDecInput.value);
+            const altura = parseInt(altInput.value);
+
+            if (isNaN(cre) || isNaN(dec) || isNaN(altura)) {
+                result.textContent = 'Ingresa un numero valido';
+            } else {
+                const dias = calcularDiasCrecimiento(cre, dec, altura);
+                result.textContent = 'La planta tardará ' + dias + ' días en alcanzar la altura deseada';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Calculadora de crecimiento</h1>
+    <form id="golfForm">
+        <label for="velCreInput">Velocidad de crecimiento:</label>
+        <input type="number" id="velCreInput" name="cre" required>
+        <br>
+        <br>
+        <label for="velDecInput">Velocidad de decrecimiento:</label>
+        <input type="number" id="velDecInput" name="dec" required>
+        <br>
+        <br>
+        <label for="altInput">Altura deseada:</label>
+        <input type="number" id="altInput" name="altura" required>
+        <br>
+        <br>
+        <button type="button" onclick="calcuPuntos()">Calcula</button>
+    </form>
+    <p id="result"></p>
+</body>
+
+</html>
