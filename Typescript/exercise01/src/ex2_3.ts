@@ -18,7 +18,7 @@ function flatten(array: (number | number[])[]): number[] {
 
 const flattenedNumbers: number[] = flatten(numbers);
 
-console.log('[Ejercicio 4.3]', flattenedNumbers);
+console.log('[Ejercicio 2.3]', flattenedNumbers);
 
 // funcion generica
 function flattenG<T>(array: (T | T[])[]): T[] {
