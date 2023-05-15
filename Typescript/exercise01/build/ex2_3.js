@@ -15,7 +15,7 @@ function flatten(array) {
     return flattened;
 }
 const flattenedNumbers = flatten(numbers);
-console.log('[Ejercicio 4.3]', flattenedNumbers);
+console.log('[Ejercicio 2.3]', flattenedNumbers);
 // funcion generica
 function flattenG(array) {
     const flattenedG = [];
